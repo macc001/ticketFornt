@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <br />
+      <div class="card text-center">
+        <div class="card-header text-center">
+          ENTREGA DE INCENTIVO
+          <div class="text-right">
+            <button class="btn btn-primary" (click)="salir()">salir</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+              <form>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="exampleInputEmail1"
+                    name="ci"
+                    [(ngModel)]="ci"
+                    placeholder="Introducir CI"
+                  />
+                </div>
+                <button (click)="buscarCi()" class="btn btn-primary">
+                  Buscar
+                </button>
+              </form>
+            </div>
+          </div>
+          <br />
+          <div class="card text-center">
+            <ul
+              class="list-group list-group-flush"
+              *ngFor="let heroe of buscar; let i = index"
+            >
+              <li class="list-group-item">
+                <strong>CI:</strong> {{ heroe.ci }}
+              </li>
+              <li class="list-group-item">
+                <strong>ITEM:</strong>{{ heroe.item }}
+              </li>
+              <li class="list-group-item">
+                <strong>NOMBRE:</strong> {{ heroe.nombre | uppercase }}
+              </li>
+              <li class="list-group-item">
+                <strong>SIE:</strong> {{ heroe.sie }}
+              </li>
+              <li class="list-group-item">
+                <strong>COLEGIO:</strong> {{ heroe.colegio | uppercase }}
+              </li>
+              <li class="list-group-item">
+                <strong>INCENTIVO ENTREGADO:</strong> {{ heroe.ticke }}
+              </li>
+              <br />
+              <fieldset
+                *ngIf="!heroe.ticke"
+                class="col-sm-12 col-md-8 col-lg-6 mx-auto"
+                [disabled]="heroe.ticke"
+              >
+                <button
+                  (click)="agregarTicket(heroe.id)"
+                  type="button"
+                  class="btn  btn-block color-rojo"
+                >
+                  Entregar Incentivo
+                </button>
+                <br />
+              </fieldset>
+              <fieldset
+                *ngIf="heroe.ticke"
+                class="col-sm-12 col-md-8 col-lg-6 mx-auto"
+                [disabled]="heroe.ticke"
+              >
+                <button
+                  (click)="agregarTicket(heroe.id)"
+                  type="button"
+                  class="btn  btn-block color-verde"
+                >
+                  Incentivo Entregado
+                </button>
+                <br />
+              </fieldset>
+              <li class="list-group-item">
+                <strong>INCENTIVO ENTREGADO POR</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>USUARIO:</strong> {{ heroe.id_usuar | userPipe }}
+              </li>
+              <li class="list-group-item">
+                <strong>FECHA:</strong> {{ heroe.hora_fecha | fechaPipe }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

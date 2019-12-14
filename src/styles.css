@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Lilita+One&display=swap");
+
+.color-rojo {
+  widows: 50px;
+  height: 50px;
+  background: rgb(241, 10, 29);
+  color: rgb(239, 247, 230);
+  /* font-weight: bold;
+  font-size: large; */
+  font-family: "Lilita One", cursive;
+}
+
+.color-rojo:hover {
+  color: rgb(239, 247, 230);
+}
+
+.color-verde {
+  widows: 50px;
+  height: 50px;
+  background: rgb(2, 133, 31);
+  color: rgb(239, 247, 230);
+  /* font-weight: bold;
+  font-size: large; */
+  font-family: "Lilita One", cursive;
+}
+
+.color-verde:hover {
+  color: rgb(239, 247, 230);
+}

@@ -1,0 +1,199 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <br />
+      <div class="card text-center">
+        <div class="card-header text-center">
+          SISTEMA DE INCENTIVO
+          <div class="text-right">
+            <button class="btn btn-primary" (click)="salir()">salir</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <nav class="nav justify-content-center">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a
+                class="nav-item nav-link"
+                routerLinkActive="active"
+                id="nav-home-tab"
+                data-toggle="tab"
+                (click)="btnbuscar()"
+                role="tab"
+                aria-controls="nav-home"
+                aria-selected="true"
+                >Buscar</a
+              >
+              <a
+                class="nav-item nav-link"
+                id="nav-profile-tab"
+                routerLinkActive="active"
+                data-toggle="tab"
+                (click)="btnreg()"
+                role="tab"
+                aria-controls="nav-profile"
+                aria-selected="false"
+                >Registrar</a
+              >
+              <a
+                class="nav-item nav-link"
+                id="nav-contact-tab"
+                data-toggle="tab"
+                (click)="btnentregar()"
+                routerLinkActive="active"
+                role="tab"
+                aria-controls="nav-contact"
+                aria-selected="false"
+                >Entregar</a
+              >
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div
+              *ngIf="boolBuscar"
+              class="tab-pane fade show active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="nav-home-tab"
+            >
+              <br />
+              <form>
+                <div class="form-group col-sm-12 col-md-8 col-lg-6 mx-auto">
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="exampleInputEmail1"
+                    name="ci"
+                    [(ngModel)]="ci"
+                    placeholder="Introducir id"
+                  />
+                </div>
+                <button (click)="buscarId()" class="btn color-rojo">
+                  Buscar
+                </button>
+              </form>
+              <br />
+              <div class="card text-center">
+                <ul
+                  class="list-group list-group-flush"
+                  *ngFor="let heroe of buscar; let i = index"
+                >
+                  <li class="list-group-item">
+                    <strong>NOMBRE: </strong> {{ heroe.nombre | uppercase }}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>CI: </strong>{{ heroe.ci }}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>CANTIDAD: </strong> {{ heroe.cantidad }}
+                  </li>
+                  <br />
+                </ul>
+              </div>
+            </div>
+            <div
+              *ngIf="boolRegist"
+              class="tab-pane fade show active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="nav-home-tab"
+            >
+              <br />
+              <form
+                ngNativeValidate
+                autocomplete="off"
+                (ngSubmit)="regProfe(regProf)"
+                #regProf="ngForm"
+              >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introducir CI"
+                    name="ci"
+                    [(ngModel)]="prof.ci"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nombre"
+                    [(ngModel)]="prof.nombre"
+                    placeholder="Introducir Nombre"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="colegio"
+                    [(ngModel)]="prof.colegio"
+                    placeholder="Introducir Colegio"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="sie"
+                    [(ngModel)]="prof.sie"
+                    placeholder="Introducir Sie"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="item"
+                    [(ngModel)]="prof.item"
+                    placeholder="Introducir Item"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introducir distrito"
+                    name="distrito"
+                    [(ngModel)]="prof.distrito"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+              </form>
+            </div>
+            <div
+              *ngIf="boolEnrega"
+              class="tab-pane fade show active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="nav-home-tab"
+            >
+              <br />
+              <form>
+                <div class="form-group col-sm-12 col-md-8 col-lg-6 mx-auto">
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="exampleInputEmail1"
+                    name="ci"
+                    [(ngModel)]="ci"
+                    placeholder="Introducir ci"
+                  />
+                </div>
+                <button (click)="buscarId()" class="btn color-rojo">
+                  Buscar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

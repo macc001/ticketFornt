@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5 bg-info text-white shadow-lg ">
+        <div class="card-body">
+          <h5 class="card-title text-center"><h1>Login</h1></h5>
+          <div>
+            <form
+              ngNativeValidate
+              autocomplete="off"
+              (ngSubmit)="login(f)"
+              #f="ngForm"
+            >
+              <div class="form-group ">
+                <label for="exampleInputEmail1">Usuario</label>
+                <input
+                  type="text"
+                  class="form-control "
+                  id="exampleInputEmail1"
+                  placeholder="Ingresar usuario"
+                  name="user"
+                  [(ngModel)]="usuario.user"
+                  required
+                />
+                <small
+                  *ngIf="f.submitted && f.controls['user'].errors"
+                  id="emailHelp"
+                  class="form-text badge badge-danger"
+                  >Ingresar Usuario</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Ingresar contraseña"
+                  name="passw"
+                  [(ngModel)]="usuario.password"
+                  required
+                />
+                <small
+                  *ngIf="f.submitted && f.controls['passw'].errors"
+                  id="emailHelp"
+                  class="form-text badge badge-danger"
+                  >Ingresar contraseña</small
+                >
+              </div>
+              <!-- <div class="custom-control form-group custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck1"
+                  [(ngModel)]="recordarme"
+                  name="recordarme"
+                />
+                <label class="custom-control-label" for="customCheck1"
+                  >Recordar contraseña</label
+                >
+              </div> -->
+              <button type="submit" class="btn btn-dark btn-block badge-pill">
+                Ingresar
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="card-footer text-muted text-center">
+          <h5 class="text-white">Entrega de Incentivo</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
