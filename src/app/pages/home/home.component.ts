@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   buscar: BuscarModel[] = [];
   ci: CiModel;
   color = true;
+
   // verde cuando no se entrego
   // rojo cuando se entrego
   constructor(
@@ -79,9 +80,11 @@ export class HomeComponent implements OnInit {
       });
   }
   salir() {
-    this.authService.logout();
-    this.router.navigateByUrl(url.salir);
-    // console.log("hola");
-    // console.log(this.authService.estaAutenticado());
+    this.authService.logout().subscribe(resp => {
+      localStorage.removeItem("id_user");
+      localStorage.removeItem("expira");
+      localStorage.removeItem("r");
+      this.router.navigateByUrl(url.salir);
+    });
   }
 }

@@ -10,7 +10,8 @@ const url = {
   agregarTicketCi: "/insert",
   listaCant: "/mostrar",
   regProf: "/registrar-profesor",
-  entreProfe: "/entregar-profesor"
+  entreProfe: "/entregar-profesor",
+  cerrarSesion: "/cerrar-sesion"
 };
 
 export default url;

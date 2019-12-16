@@ -66,12 +66,25 @@ export class BuscarService {
     });
   }
 
-  entreProfesor(ci: string, observacion): Observable<any> {
+  entreProfesor(ci: string, observacion: string): Observable<any> {
     const json = JSON.stringify({
       ci,
-      observacion
+      observacion,
+      id_user: localStorage.getItem("id_user")
     });
     const urlListaCant = url.API_URI + url.entreProfe;
+    return this.httpClient.post(urlListaCant, json, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
+  cerrarSesion(): Observable<any> {
+    const json = JSON.stringify({
+      id_user: localStorage.getItem("id_user")
+    });
+    const urlListaCant = url.API_URI + url.cerrarSesion;
     return this.httpClient.post(urlListaCant, json, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"

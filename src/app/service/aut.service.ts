@@ -17,9 +17,16 @@ export class AutService {
   }
 
   logout() {
-    localStorage.removeItem("id_user");
-    localStorage.removeItem("expira");
-    localStorage.removeItem("r");
+    const idUser = localStorage.getItem("id_user");
+    const json = JSON.stringify({
+      idUser
+    });
+    const urlSalir = url.API_URI + url.cerrarSesion;
+    return this.httpClient.post(urlSalir, json, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    });
   }
 
   login(usuario: UsuarioModel) {
