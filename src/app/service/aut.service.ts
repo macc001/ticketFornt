@@ -62,7 +62,7 @@ export class AutService {
     localStorage.setItem("id_user", idToken);
     localStorage.setItem("r", String(rol));
     const hoy = new Date();
-    hoy.setSeconds(3600);
+    hoy.setSeconds(43200);
     localStorage.setItem("expira", hoy.getTime().toString());
   }
 
